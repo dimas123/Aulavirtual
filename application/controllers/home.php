@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
 class Home extends CI_Controller {
 
@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 	}
 
-	public function index()
+	function index()
 	{
 		$this->load->view('home');
 	}
@@ -16,5 +16,4 @@ class Home extends CI_Controller {
 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+?>
