@@ -1,4 +1,17 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php 
+/**
+* Modelo Curso
+*
+* Modelo Curso ...
+*
+* LICENSE: Licencia...
+*
+* @author     Gianino Cole
+* @copyright  Copyright (c) 2012-2012 CloudMedia S.A.C
+* @version    0.1
+*/
+
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class mCurso extends CI_Controller {
 
@@ -22,20 +35,35 @@ class mCurso extends CI_Controller {
 		$this->db->delete();
 	}
 
-	public function ver()
-	{
-		$this->db->get();
-	}
-
-	public function listar($pagina = 1)
+    /**
+     * @param int $id
+     * @return text $return (devuelve el curso seleccionado, de no existir devuelve mensaje de error)
+     */
+    public function ver($id)
     {
-    	$sql = 'SELECT * FROM noticia ORDER BY id DESC';
-        $data = $this->db->paginar($sql, $pagina,10);
-        $data['pagina'] = $pagina;
+        $this->db->where('id', $id);
+        $query = $this->db->get('curso');
 
-        return $data;
+        if( $query->num_rows() > 0 ) 
+        {
+            $return['resultado'] = $query->row_array();
+        } 
+        else 
+        {
+            $return['vacio'] = "No existe ese registro (-.-)'";
+        }
+
+        return $return;
+    }
+
+    /**
+     * 
+     */
+    public function listar($pagina = 1)
+    {
+        $sql = 'SELECT * FROM curso ORDER BY id DESC';
+        $return = $this->db->paginar($sql, $pagina,10);
+        $return['pagina'] = $pagina;
+        return $return;
     }
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

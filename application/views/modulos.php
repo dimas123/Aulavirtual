@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Noticias</title>
+	<title>Módulos</title>
 	<link rel="stylesheet" type="text/css" href="/aulavirtual/css/admin.css">
 	<link rel="stylesheet" type="text/css" href="/aulavirtual/css/ausuarioform.css">
 </head>

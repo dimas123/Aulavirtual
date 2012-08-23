@@ -1,8 +1,8 @@
 <?php
 /**
-* Modelo Curso
+* Modelo Módulo
 *
-* Modelo Curso ...
+* Modelo Módulo ...
 *
 * LICENSE: Licencia...
 *
@@ -13,14 +13,14 @@
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class mUsuario extends CI_Model {
+class mModulo extends CI_Model {
  
     /**
      * 
      */
     public function listar($pagina = 1)
     {
-        $sql = 'SELECT * FROM usuario ORDER BY id DESC';
+        $sql = 'SELECT * FROM modulo ORDER BY id DESC';
         $return = $this->db->paginar($sql, $pagina,10);
         $return['pagina'] = $pagina;
         return $return;
@@ -34,7 +34,7 @@ class mUsuario extends CI_Model {
     public function eliminar($id)
     {
         $this->db->where('id', $id);
-        $query = $this->db->delete('usuario');
+        $query = $this->db->delete('modulo');
 
         return $this->listar();
     }
@@ -48,13 +48,13 @@ class mUsuario extends CI_Model {
     {
 
         $this->db->where('id', $id);
-        $this->db->update('usuario', $data); 
+        $this->db->update('modulo', $data); 
         return true;
     }
 
     public function validar()
     {
-        $this->form_validation->set_rules('usuario', 'Usuario', 'required');
+        $this->form_validation->set_rules('modulo', 'Usuario', 'required');
         $this->form_validation->set_rules('contrasena', 'Contraseña', 'required');
         $this->form_validation->set_rules('nombre', 'Nombre', 'required');
         $this->form_validation->set_rules('ciudad', 'Ciudad', 'required');
@@ -77,7 +77,7 @@ class mUsuario extends CI_Model {
     public function ver($id)
     {
         $this->db->where('id', $id);
-        $query = $this->db->get('usuario');
+        $query = $this->db->get('modulo');
 
         if( $query->num_rows() > 0 ) 
         {
@@ -97,16 +97,16 @@ class mUsuario extends CI_Model {
      */
     public function ingresar($data)
     {
-        $this->db->insert('usuario',$data);
+        $this->db->insert('modulo',$data);
         return true;
     }
 
     public function verificar($user,$pass)
     {
 
-        $this->db->where('usuario' , $usuario);
+        $this->db->where('modulo' , $usuario);
         $this->db->where('password' , MD5($password));
-        $query = $this->db->get('usuario');
+        $query = $this->db->get('modulo');
 
         if($query->num_rows() > 0)
         {

@@ -13,7 +13,14 @@
     <![endif]-->
 </head>
 <body>
-<div class="cabecera"></div>
+<div class="cabecera">
+<ul id="ulmenu">
+	<li><?php echo anchor('home','Inicio'); ?></li>
+	<li><?php echo anchor('usuario','Usuarios'); ?></li>
+	<li><?php echo anchor('curso','Cursos'); ?></li>
+	<li><?php echo anchor('modulo','Módulos'); ?></li>
+</ul>
+</div>
 <div id="contenedor">
 	<?php 
 	$attributes = array('enctype' => 'multipart/form-data');

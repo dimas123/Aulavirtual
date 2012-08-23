@@ -1,41 +1,41 @@
 <?php
 
-class Usuario extends CI_Controller {
+class Modulo extends CI_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		$this->load->model('mUsuario');
+		$this->load->model('mModulo');
 	}
 
 
 	function index()
 	{
-		$data = $this->mUsuario->listar();
-		$this->load->view('usuarios',$data);
+		$data = $this->mModulo->listar();
+		$this->load->view('modulos',$data);
 	}
 
 	function eliminar()
 	{
 		$id = $this->input->get('id');
-		$data = $this->mUsuario->eliminar($id);
-		$this->load->view('usuarios',$data);
+		$data = $this->mModulo->eliminar($id);
+		$this->load->view('modulos',$data);
 	}
 
 	function ver()
 	{
 		$id = $this->input->get('id');
-		$data = $this->mUsuario->ver($id);
-		$this->load->view('uedit',$data);
+		$data = $this->mModulo->ver($id);
+		$this->load->view('medit',$data);
 	}
 
 	function editar()
 	{
 
 		$id = $this->input->post('id');
-		$data = $this->mUsuario->ver($id);
+		$data = $this->mModulo->ver($id);
 		$password = $data['resultado']['password'];
 		if($this->input->post('contrasena') != '')
 		{
@@ -82,7 +82,7 @@ class Usuario extends CI_Controller {
 			);
 		}
 
-		$this->mUsuario->editar($id,$data);
+		$this->mModulo->editar($id,$data);
 		$this->index();
 	}
 
@@ -109,7 +109,7 @@ class Usuario extends CI_Controller {
 
 
 
-		if(!$this->mUsuario->validar())
+		if(!$this->mModulo->validar())
 		{
 			$this->load->view('uform');
 			return true;
@@ -144,7 +144,7 @@ class Usuario extends CI_Controller {
 				'foto' => 'uploads/'.$upload_data['file_name']
 			);
 
-			$data = $this->mUsuario->ingresar($data);
+			$data = $this->mModulo->ingresar($data);
 			$this->index();
 		}
 
@@ -155,24 +155,24 @@ class Usuario extends CI_Controller {
 	{
 		$usuario = $this->input->post('usuario');
         $password = $this->input->post('password');
-		$data = $this->mUsuario->verificar($usuario,$password);
-		$this->load->view('usuarios',$data);
+		$data = $this->mModulo->verificar($usuario,$password);
+		$this->load->view('modulos',$data);
 	}
 
 	function lista($cosa)
 	{
-		$data = $this->mUsuario->listar($cosa);
-		$this->load->view('usuarios',$data);
+		$data = $this->mModulo->listar($cosa);
+		$this->load->view('modulos',$data);
 	}
 
 	function form()
 	{
-		$this->load->view('uform');
+		$this->load->view('mform');
 	}
 
 	function validarUsuario()
 	{
-		$this->mUsuario->validarUsuario();
+		$this->mModulo->validarUsuario();
 	}
 
 }
