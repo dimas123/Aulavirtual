@@ -21,7 +21,7 @@ class Curso extends CI_Controller {
 
 	public function editar()
 	{
-		/*comentario*/
+		/*comentario2*/
 		$this->mCurso->editar();
 	}
 
