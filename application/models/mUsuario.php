@@ -42,12 +42,30 @@ class mUsuario extends CI_Model {
      * @return text $data (Mensaje de error o satisfacción)
      * @todo determinar lógica
      */
-    public function editar($id)
+    public function editar($id,$data)
     {
 
         $this->db->where('id', $id);
         $this->db->update('usuario', $data); 
-        $this->lista();
+        return true;
+    }
+
+    public function validar()
+    {
+        $this->form_validation->set_rules('usuario', 'Usuario', 'required');
+        $this->form_validation->set_rules('contrasena', 'Contraseña', 'required');
+        $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+        $this->form_validation->set_rules('ciudad', 'Ciudad', 'required');
+        $this->form_validation->set_rules('distrito', 'Distrito', 'required');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     /**

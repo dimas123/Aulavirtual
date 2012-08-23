@@ -16,7 +16,7 @@
 .tdx2
 {
 	margin-left: 110px;
-}
+}*/
 .btnatras
 {
 	width: 20px;
@@ -26,7 +26,13 @@
 	right: 300px;
 	position: absolute;
 }
-.imagen
+.errores
+{
+	font-size: 11px;
+	background-color: #FF4A4A;
+	border-bottom: 1px solid black;
+}
+/*.imagen
 {
 	width: 40%;
 	float: left;

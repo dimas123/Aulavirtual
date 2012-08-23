@@ -14,23 +14,14 @@
 </head>
 <body>
 <div class="cabecera"></div>
-<div class="errores">
-<?php 
-if(isset($error))
-{ 
-	echo $error; 
-}
-echo validation_errors();
-?>
-</div>
 <div id="contenedor">
 	<?php 
 	$attributes = array('enctype' => 'multipart/form-data');
-	echo form_open('usuario/ingresar',$attributes); 
+	echo form_open('usuario/editar',$attributes); 
 	?>
 	<div class="tr">
 		<div class="td">Usuario : </div>
-		<div class="td"><?php echo form_input('usuario', '','placeholder="Usuario", size="75"'); ?></div>
+		<div class="td"><?php echo form_input('usuario', $resultado['usuario'],'placeholder="Usuario", size="75"'); ?></div>
 	</div>
 	<div class="tr">
 		<div class="td">Contrase&ntilde;a : </div>
@@ -38,20 +29,24 @@ echo validation_errors();
 	</div>
 	<div class="tr">
 		<div class="td">Nombre : </div>
-		<div class="td"><?php echo form_input('nombre', '','placeholder="Nombre", size="75"'); ?></div>
+		<div class="td"><?php echo form_input('nombre', $resultado['nombre'],'placeholder="Nombre", size="75"'); ?></div>
 	</div>
 	<div class="tr">
 		<div class="td">Ciudad : </div>
-		<div class="td"><?php echo form_input('ciudad', '','placeholder="Ciudad", size="75"'); ?></div>
+		<div class="td"><?php echo form_input('ciudad', $resultado['ciudad'],'placeholder="Ciudad", size="75"'); ?></div>
 	</div>
 	<div class="tr">
 		<div class="td">Distrito : </div>
-		<div class="td"><?php echo form_input('distrito', '','placeholder="Distrito", size="75"'); ?></div>
+		<div class="td"><?php echo form_input('distrito', $resultado['distrito'],'placeholder="Distrito", size="75"'); ?></div>
 	</div>
 	<div class="tr">
 		<div class="td">Imagen : </div>
-		<div class="td"><?php echo form_upload('imagen'); ?></div>
+		<div class="td"><?php echo form_upload('imagen',$resultado['foto']); ?></div>
 	</div>
+	<div class="tr imagen">
+		<div class="td tdx2"><img src="/aulavirtual/<?php echo $resultado['foto']; ?>" width="100" height="100"/></div>
+	</div>
+	<?php echo form_hidden('id', $this->input->get('id')); ?>
 	<div class="tr">
 		<?php echo form_submit('boton', 'Ingresar'); ?>
 	</div>
