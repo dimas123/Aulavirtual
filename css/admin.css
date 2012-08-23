@@ -1,0 +1,34 @@
+body
+{
+	margin: 0;
+	font-family: verdana;
+}
+.cabecera
+{
+    width: 100%;
+    height: 40px;
+    background-color: #21aefd;
+}
+#contenedor
+{
+	background-color: #DDD;
+	width: 800px;
+	height: 500px;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	margin: 0 auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.footer
+{
+    width: 100%;
+    height: 40px;
+    background-color: #ff3165; 
+    position:fixed;
+    bottom:0px;
+}
+i
+{
+	color: black !important;	
+}
