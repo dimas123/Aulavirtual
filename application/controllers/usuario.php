@@ -4,7 +4,6 @@ class Usuario extends CI_Controller {
 
 	function __construct()
 	{
-		/**asdasd**/
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');

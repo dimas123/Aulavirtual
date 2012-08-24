@@ -28,7 +28,9 @@ class Curso extends CI_Controller {
 
 	public function eliminar()
 	{
-		$this->mCurso->eliminar();
+		$id = $this->input->get('id');
+		$data = $this->mCurso->eliminar($id);
+		$this->load->view('cursos',$data);
 	}
 
 	public function ver()

@@ -25,9 +25,12 @@ class mCurso extends CI_Controller {
 		$this->db->set();
 	}
 
-	public function eliminar()
+	public function eliminar($id)
 	{
-		$this->db->delete();
+        $this->db->where('id', $id);
+        $query = $this->db->delete('curso');
+
+        return $this->listar();
 	}
 
 	public function eliminarTodos()
