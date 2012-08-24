@@ -15,14 +15,14 @@ class Curso extends CI_Controller {
 		$this->load->view('cursos',$data);
 	}
 
-	public function lista($pagina)
+	public function lista($cosa)
 	{
-		$this->mCurso->lista($pagina);
+		$data = $this->mCurso->listar($cosa);
+		$this->load->view('cursos',$data);
 	}
 
 	public function editar()
 	{
-		/*comentario2*/
 		$this->mCurso->editar();
 	}
 
@@ -38,13 +38,6 @@ class Curso extends CI_Controller {
 		$id = $this->input->get('id');
 		$data = $this->mCurso->ver($id);
 		$this->load->view('cedit',$data);
-	}
-
-	public function listar()
-	{
-		$data = $this->mCurso->listar();
-		$this->load->view('curso',$data);
-
 	}
 
 }
